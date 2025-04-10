@@ -5,6 +5,12 @@ MOSI: Pin 11
 MISO: Pin 12
 */
 
+const int sd_chipSelect = 10;
+
+void setup() {
+  SD.begin(sd_chipSelect);
+}
+
 void write_log(float gforce_magnitude) {
   String text = String(gforce_magnitude, 3);
   File dataFile = SD.open("datalog.txt");
