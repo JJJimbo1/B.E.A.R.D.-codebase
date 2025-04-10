@@ -5,6 +5,9 @@ MOSI: Pin 11
 MISO: Pin 12
 */
 
+#include <SPI.h>
+#include <SD.h>
+
 const int sd_chipSelect = 10;
 
 void setup() {
@@ -16,7 +19,7 @@ void write_log(float gforce_magnitude) {
   File dataFile = SD.open("datalog.txt");
 
   if (dataFile) {
-    dataFile.write(text);
+    dataFile.println(text);
   }
 
   dataFile.close();
@@ -26,7 +29,6 @@ void read_log() {
   if (!Serial) {
     return;
   }
-
   File dataFile = SD.open("datalog.txt");
 
   if (dataFile) {
