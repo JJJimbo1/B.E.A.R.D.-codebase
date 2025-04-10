@@ -20,6 +20,7 @@ void read_log() {
   if (!Serial) {
     return;
   }
+
   File dataFile = SD.open("datalog.txt");
 
   if (dataFile) {
